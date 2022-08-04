@@ -1514,7 +1514,7 @@
           var nowMt = now.getMinutes();
      		if ( nowHour <= 11  &&  nowHour  >= 0 ) {
      		  var date ='오전' + nowHour + ':' + nowMt;
-     		} else if (  nowHour >= 12  &&  nowHour  < 23  ) {
+     		} else if (  nowHour >= 12  &&  nowHour  < 24  ) {
      			if(nowHour<20){
      				var date ='오후0' + (nowHour-12) + ':' + nowMt;
      			}else{
