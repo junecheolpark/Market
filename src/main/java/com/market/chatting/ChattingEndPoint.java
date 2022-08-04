@@ -13,7 +13,7 @@ import javax.websocket.Session;
 import org.json.JSONObject;
 
 public class ChattingEndPoint {
-	private static List<Object> clients = Collections.synchronizedList(new ArrayList<>());
+	private static List<Object> clients = Collections.synchronizedList(new ArrayList<Object>());
 	private String nickname;
 	private ChattingService service = SpringContext.getApplicationContext().getBean(ChattingService.class);
 
