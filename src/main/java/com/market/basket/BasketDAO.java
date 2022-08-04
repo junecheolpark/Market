@@ -7,8 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.market.post.PostDTO;
-
 @Repository
 public class BasketDAO {
 	@Autowired
@@ -29,7 +27,7 @@ public class BasketDAO {
 	}
 	
 	public BasketDTO select_userBasket(String user_id, int post_seq) throws Exception{ 
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
 		map.put("post_seq", post_seq);
 		return session.selectOne("basketMapper.select_userBasket", map);
