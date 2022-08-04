@@ -1228,8 +1228,14 @@
                     <div class="col p-0 d-flex align-items-center flex-row-reverse">
                         <a href="#" class="naviIcon fw-bolder">
                             <img src="/resources/images/post/star.png" height="20px">
-                            <span class="align-middle" style="color:black;">${memberDto.grade}</span>
-                            <span class="align-middle" id="reviewBtn" style="color:gray;">리뷰${reviewCnt} ></span>
+                            <span class="align-middle" style="color:black;">${myrating}</span>
+                            <%-- 로그인 값 없으면 모달창 띄우기 잇으면 후기페이지 이동 --%>
+                            <c:if test="${not empty loginSession}">
+                            	<span class="align-middle" id="reviewBtn" style="color:gray;">리뷰${reviewCnt} ></span>
+                            </c:if>
+                            <c:if test="${empty loginSession}">
+                            	<span class="align-middle" data-bs-toggle="modal" data-bs-target="#exampleModa_login" style="color:gray;">리뷰${reviewCnt} ></span>
+                            </c:if>
                         </a>
                     </div>
                     

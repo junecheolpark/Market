@@ -340,6 +340,7 @@ public class MemberController {
 			@ResponseBody
 			public List<ReportDTO> toReportPage(int curPage) throws Exception{
 				List<ReportDTO> reportList=reportService.selectAll(curPage*10-9,curPage*10);
+				System.out.println(reportList);
 				return reportList;
 			}
 			
@@ -359,7 +360,7 @@ public class MemberController {
 			model.addAttribute("naviMap",map);
 			model.addAttribute("blackNaviMap",blackMap);
 			model.addAttribute("reportNaviMap",reportMap);
-			
+			System.out.println(reportList);
 			model.addAttribute("reportList",reportList);//신고리스트
 			model.addAttribute("blackList", blackList);//블랙리스트
 			model.addAttribute("list",list);//멤버 리스트

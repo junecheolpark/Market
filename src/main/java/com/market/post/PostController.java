@@ -20,6 +20,7 @@ import com.market.basket.BasketService;
 import com.market.chatting.ChattingService;
 import com.market.member.MemberDTO;
 import com.market.member.MemberService;
+import com.market.mypage.MypageService;
 import com.market.notification.NotificationService;
 import com.market.review.ReviewService;
 
@@ -40,6 +41,8 @@ public class PostController {
 	private ChattingService chatService;
 	@Autowired
 	private ReviewService reviewService;
+	@Autowired
+	private MypageService mypageService;
 	@Autowired
 	private HttpSession session;
 
@@ -158,10 +161,13 @@ public class PostController {
 		model.addAttribute("memberDto", memberDto);
 		
 		//user_id로 카운트값 가져오기
-		String review_user_id = ((PostDTO)map.get("postDTO")).getUser_id();
-		int reviewCnt = reviewService.reviewCnt(review_user_id);
+		int reviewCnt = reviewService.reviewCnt(p_user_id);
 		System.out.println(reviewCnt);
 		model.addAttribute("reviewCnt", reviewCnt);
+		//별점 평균값
+		float myrating=mypageService.reviewAvg(p_user_id);
+		System.out.println("내 평점 평균 전:" + myrating);
+		model.addAttribute("myrating", myrating);
 		//해당게시글 찜목록에 로그인 아이디 있는지 확인
 		if(session.getAttribute("loginSession") != null) {
 			
