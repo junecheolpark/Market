@@ -90,7 +90,7 @@ public class ChattingController {
 	@ResponseBody
 	@RequestMapping(value = "/chat_m_select")
 	public Map<String, Object> chat_m_select(int roomId, int post_seq,Model model) throws Exception{
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		System.out.println(roomId+":" + post_seq);
 		List<ChattingMessageDTO> messagelist = cService.chat_m_select(roomId);
 		Map<String,Object> postMap = postService.selectPost_member(post_seq);

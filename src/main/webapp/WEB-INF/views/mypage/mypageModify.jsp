@@ -207,7 +207,7 @@
 		                                <a class="nav-link dropdown-toggle" href="/mypage/toMyStore?user_id=${loginSession.user_id}" data-bs-toggle="dropdown" aria-expanded="false"><b>${loginSession.user_nickname}</b> 상점</a>
 		                                <ul class="dropdown-menu">
 		                                    <li><a class="dropdown-item" href="/mypage/toMyStore?user_id=${loginSession.user_id}">내 상품</a></li>
-		                                    <li><a class="dropdown-item" href="/mypage/toBasket">찜한 상품</a></li>
+		                                    <li><a class="dropdown-item" href="/mypage/toBasket?user_id=${loginSession.user_id}">찜한 상품</a></li>
 		                                    <li><a class="dropdown-item" href="/mypage/toMypageModify">계정 설정</a></li>
 		                                </ul>
 		                            </li>
@@ -1078,7 +1078,7 @@
     
 		// 뒤로 가기 버튼
 		document.getElementById("backBtn").onclick = function(){
-			location.href = "/mypage/toMyStore";
+			location.href = "/mypage/toMyStore?user_id=${loginSession.user_id}";
 		}
 		
 	 	// user_pw

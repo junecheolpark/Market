@@ -117,7 +117,7 @@
 			</div>
 			<div class="buttonBox">
 				<button type="button" id="loginBtn" class="btn btn-primary">로그인</button><br>
-				<a href="https://kauth.kakao.com/oauth/authorize?client_id=78df7cab2093de0eb394ceeec542eb6e&redirect_uri=http://localhost:8099/member/kakaoLogin&response_type=code">
+				<a href="https://kauth.kakao.com/oauth/authorize?client_id=78df7cab2093de0eb394ceeec542eb6e&redirect_uri=http://192.168.20.19:8099/member/kakaoLogin&response_type=code">
 				<img id="kakaoLogin" src="/resources/images/member/kakao start.png" onclick="">
 				</a>
 			</div>

@@ -58,7 +58,7 @@ public class ChattingDAO{
     //있는지 확인
     public boolean overlapping(String masterName, int post_seq) throws Exception {
 		System.out.println(masterName+ post_seq);
-    	Map<String, Object> map = new HashMap<>();
+    	Map<String, Object> map = new HashMap<String, Object>();
 		map.put("masterName", masterName);
 		map.put("post_seq", post_seq);
     	return sqlSession.selectOne("chattingMapper.overlapping", map);

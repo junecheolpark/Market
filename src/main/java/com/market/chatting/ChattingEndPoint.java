@@ -16,14 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @ServerEndpoint(value="/chat", configurator=WSConfig.class)
 public class ChattingEndPoint {
-	// ws 의 Session은 HttpSession 과 다름.
-	// ServerEndPoint 는 클라이언트의 접속마다 인스턴스가 생성되기 때문에
-	// clients 멤버필드를 static 으로 구성해둬야 그 안의 값(클라이언트의 세션)이 계속 유지됨.
-	/**/
-	private static List<Session> clients = Collections.synchronizedList(new ArrayList<>());
-//	private String nickname;
-//	private ChattingService service = SpringContext.getApplicationContext().getBean(ChatService.class);
-	/**/
+	private static List<Object> clients = Collections.synchronizedList(new ArrayList<Object>());
+	private String nickname;
+	private ChattingService service = SpringContext.getApplicationContext().getBean(ChattingService.class);
+
 	// 클라이언트가 웹소켓 통신에 대한 요청을 처음 보낸 때를 캐치하는 메서드(처음 접속한 순간 = 웹소켓 통신 스트림이 열린 순간)
 	// 클라이언트의 웹소켓 첫 접속이 이뤄진 순간 자동으로 실행되는 메서드
 	@OnOpen
@@ -36,7 +32,7 @@ public class ChattingEndPoint {
 		
 		System.out.println("접속됨");
 		clients.add(session); // 멤버필드list에 새로 접속한 클라이언트 세션 추가
-		for(Session client : clients) {
+		for(Object client : clients) {
 			System.out.println(client);
 		}
 	}
@@ -71,11 +67,11 @@ public class ChattingEndPoint {
 			// 만약 아래의 for문을 수행하는 도중 clients 를 참조하는 다른 작업이 생긴다면
 			// 이 for문을 모두 수행할때까지 다른 작업은 대기하게끔 만드는 작업. 
 			//synchronized (clients) {
-				for(Session client : clients) {
+				for(Object client : clients) {
 					if(session != client) { // 나에게는 메세지 다시 보내지 않음
 						// 접속된 모든 클라이언트들에게 메세지 보내기
 						// getBasicRemote() 엔드포인트+클라이언트 사이의 스트림 주소값을 알아낼 수 있는 메서드
-						client.getBasicRemote().sendText(newChat/* obj.toString() */);
+						((Session) client).getBasicRemote().sendText(newChat/* obj.toString() */);
 					}
 				}
 			//}

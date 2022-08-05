@@ -441,7 +441,7 @@
 		                                <a class="nav-link dropdown-toggle" href="/mypage/toMyStore?user_id=${loginSession.user_id}" data-bs-toggle="dropdown" aria-expanded="false"><b>${loginSession.user_nickname}</b> 상점</a>
 		                                <ul class="dropdown-menu">
 		                                    <li><a class="dropdown-item" href="/mypage/toMyStore?user_id=${loginSession.user_id}">내 상품</a></li>
-		                                    <li><a class="dropdown-item" href="/mypage/toBasket">찜한 상품</a></li>
+		                                    <li><a class="dropdown-item" href="/mypage/toBasket?user_id=${loginSession.user_id}">찜한 상품</a></li>
 		                                    <li><a class="dropdown-item" href="/mypage/toMypageModify">계정 설정</a></li>
 		                                </ul>
 		                            </li>
@@ -1378,7 +1378,7 @@
                 <div class="row align-items-center">
                     <div class="col art_wight">관심목록에 추가됐어요.</div>
                     <div class="col-3 text-end art_orange">
-                        <a href="/mypage/toBasket"> 관심목록보기 </a>
+                        <a href="/mypage/toBasket?user_id=${map.postDTO.user_id}"> 관심목록보기 </a>
                     </div>
                 </div>
             </div>

@@ -790,7 +790,7 @@
 		                                <a class="nav-link dropdown-toggle" href="/mypage/toMyStore?user_id=${loginSession.user_id}" data-bs-toggle="dropdown" aria-expanded="false"><b>${loginSession.user_nickname}</b> 상점</a>
 		                                <ul class="dropdown-menu">
 		                                    <li><a class="dropdown-item" href="/mypage/toMyStore?user_id=${loginSession.user_id}">내 상품</a></li>
-		                                    <li><a class="dropdown-item" href="/mypage/toBasket">찜한 상품</a></li>
+		                                    <li><a class="dropdown-item" href="/mypage/toBasket?user_id=${loginSession.user_id}">찜한 상품</a></li>
 		                                    <li><a class="dropdown-item" href="/mypage/toMypageModify">계정 설정</a></li>
 		                                </ul>
 		                            </li>
@@ -1537,7 +1537,11 @@
 			            	      	window.open('/member/todelete', '회원탈퇴', 'status=no, height=600, width=800, left='+ popupX + ', top='+ popupY);
 			            	    }
 		                	</script>
+		                	 <c:if test="${empty loginSession}">
+		                <button type="button" class="btn btn-warning d-none" id="modifyBtn">내 정보 수정하기</button>
 		                </c:if>
+		                </c:if>
+		               
 		            </div>
 		            <!-- 숨겨야 하는 버튼 박스 목록입니다!(끝) -->
 		        </div>
@@ -1599,6 +1603,9 @@
 					</div>
 		            <!-- 숨겨야 하는 버튼 박스 목록입니다!(끝) -->
 		        </div>
+		         <c:if test="${empty loginSession}">
+		                <button type="button" class="btn btn-warning d-none" id="modifyBtn">내 정보 수정하기</button>
+		                </c:if>
 	        </c:if>
 	        <div class="categoryBox">
 
@@ -1609,7 +1616,7 @@
 	    		<c:if test="${memdto.user_id ne loginSession.user_id}">
 	    			<button id="basketBtn" class="btn btn-outline-success d-none" >찜 목록</button>
 	    		</c:if>
-	            <button id="reviewBtn" class="btn btn-outline-warning" >거래 후기</button>
+	            	<button id="reviewBtn" class="btn btn-outline-warning" >거래 후기</button>
 
 
 	        </div>
@@ -1869,7 +1876,7 @@
     <script>
     	$("#reviewBtn").on("click",function(){
     	
-    		let reviewed_id=$("#reviewed_id").val();
+    		let reviewed_id='${memdto.user_id}';
     		window.open("/review/review?reviewed_id="+reviewed_id+"&&curPage=1","myReview","width=800,height=700");
     	})    
 	
