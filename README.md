@@ -8,6 +8,7 @@
 ![파이널 팀](https://user-images.githubusercontent.com/98640331/187187613-5f213f9b-2e2b-480f-8fa0-d455793bd653.jpg)
 
 ## 페이지 구성
+
 * 메인페이지
 
  메인 |
