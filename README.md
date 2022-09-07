@@ -3,6 +3,13 @@
 ## 프로젝트 기간
 22년 07월 07일 - 22년 08월 05일
 
+
+## 개발환경
+
+![파이널 개발환경](https://user-images.githubusercontent.com/98640331/187188469-6fdbe7e6-53a7-4920-91a8-c993cabd2345.JPG)
+
+
+
 ## 팀 구성
 
 ![파이널 팀](https://user-images.githubusercontent.com/98640331/187187613-5f213f9b-2e2b-480f-8fa0-d455793bd653.jpg)
@@ -62,9 +69,5 @@
 ![파이널 기타페이지](https://user-images.githubusercontent.com/98640331/187188369-10ac3692-735c-41d4-ac58-999955e2e9b6.jpg)
 
 
-
-## 개발환경
-
-![파이널 개발환경](https://user-images.githubusercontent.com/98640331/187188469-6fdbe7e6-53a7-4920-91a8-c993cabd2345.JPG)
 
 
